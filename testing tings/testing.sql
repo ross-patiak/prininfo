@@ -1,3 +1,5 @@
 USE BarBeerDrinker;
 
-SELECT * FROM beers;
+SELECT beer 
+FROM sells
+WHERE bar = 'Gecko Grill' AND NOT(beer='Hefeweizen');
