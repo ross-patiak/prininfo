@@ -2,6 +2,10 @@
 
 USE BarBeerDrinker;
 
-SELECT DISTINCT bar
-FROM frequents f1
-WHERE (f1.drinker='John' AND NOT(f1.drinker='Rebecca')) OR (f1.drinker='Rebecca' AND NOT(f1.drinker='John'));
+SELECT f1.bar
+FROM frequents f1, 
+    (SELECT bar from frequents where frequents.drinker='John') t1 INNER JOIN 
+    frequents f ON f.drinker='Rebecca' AND f.bar=t1.bar
+WHERE 
+    (f1.drinker='John' AND NOT(f1.bar=t1.bar)) OR (f1.drinker='Rebecca') 
+    AND NOT(f1.bar=t1.bar); 
