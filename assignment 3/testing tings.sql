@@ -1,0 +1,3 @@
+USE DiscoveryChallenge;
+
+SELECT REVIEW_STARS FROM TRIPADVISOR WHERE RESTAURANT = 'Ritz Restaurant';
